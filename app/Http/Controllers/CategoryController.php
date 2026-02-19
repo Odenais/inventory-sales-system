@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories.index');
+        $categories = Category::all();
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -33,7 +34,10 @@ class CategoryController extends Controller
             'description' => 'nullable|string'
         ]);
         
-        Category::create([$request->name, $request->description]);
+        Category::create([
+            'name' => $request->name, 
+            'description' => $request->description
+            ]);
 
         return redirect()->route('categories.index')->with('success','Category created successfully');
     }

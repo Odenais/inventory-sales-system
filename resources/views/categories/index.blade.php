@@ -1,0 +1,36 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Categories') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="border py-1 px-2">id</th>
+                                <th class="border py-1 px-2">Name</th>
+                                <th class="border py-1 px-2">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border py-1 px-2"></td>
+                                <td class="border py-1 px-2"></td>
+                                <td class="border py-1 px-2"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <a href="{{  route('categories.create') }}" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
+                        New Category
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>

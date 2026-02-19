@@ -18,11 +18,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($categories as $category)
                             <tr>
-                                <td class="border py-1 px-2"></td>
-                                <td class="border py-1 px-2"></td>
-                                <td class="border py-1 px-2"></td>
+                                <td class="border py-1 px-2">{{ $category->id }}</td>
+                                <td class="border py-1 px-2">{{  $category->name }}</td>
+                                <td class="bor4der py-1 px-2">{{  $category->description }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <br>

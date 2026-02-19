@@ -20,7 +20,7 @@ class CatergoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -32,6 +32,8 @@ class CatergoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string'
         ]);
+
+        return redirect()->route('categories.index')->with('success','Category created successfully');
     }
 
     /**

@@ -28,7 +28,10 @@ class CatergoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string'
+        ]);
     }
 
     /**
@@ -52,7 +55,10 @@ class CatergoryController extends Controller
      */
     public function update(Request $request, Catergory $catergory)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string'
+        ]);
     }
 
     /**

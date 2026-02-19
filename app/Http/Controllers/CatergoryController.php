@@ -12,7 +12,7 @@ class CatergoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('categories.index');
     }
 
     /**

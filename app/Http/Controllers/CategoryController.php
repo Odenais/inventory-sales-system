@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Catergory;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CatergoryController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,6 +32,8 @@ class CatergoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string'
         ]);
+        
+        Category::create([$request->name, $request->description]);
 
         return redirect()->route('categories.index')->with('success','Category created successfully');
     }
@@ -39,7 +41,7 @@ class CatergoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Catergory $catergory)
+    public function show(Category $Category)
     {
         //
     }
@@ -47,7 +49,7 @@ class CatergoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Catergory $catergory)
+    public function edit(Category $Category)
     {
         //
     }
@@ -55,7 +57,7 @@ class CatergoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Catergory $catergory)
+    public function update(Request $request, Category $Category)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -66,7 +68,7 @@ class CatergoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Catergory $catergory)
+    public function destroy(Category $Category)
     {
         //
     }

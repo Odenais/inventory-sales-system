@@ -39,6 +39,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $categories->links() }}
                     <br>
                     <a href="{{  route('categories.create') }}" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
                         New Category

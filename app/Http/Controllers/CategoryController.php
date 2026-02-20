@@ -68,6 +68,10 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string'
         ]);
+
+       $Category->update($request->all());
+
+       return redirect()->route('categories.index');
     }
 
     /**

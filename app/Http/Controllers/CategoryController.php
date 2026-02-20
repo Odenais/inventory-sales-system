@@ -12,7 +12,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->paginate(10);
+        $search = request('search');
+        $categories = Category::when($search, function ($query, $search) {
+            $query->where('name', 'like', "%{$search}%");
+        })->latest()->paginate(10)->withQueryString();
         return view('categories.index', compact('categories'));
     }
 
@@ -33,13 +36,13 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string'
         ]);
-        
-        Category::create([
-            'name' => $request->name, 
-            'description' => $request->description
-            ]);
 
-        return redirect()->route('categories.index')->with('success','Category created successfully');
+        Category::create([
+            'name' => $request->name,
+            'description' => $request->description
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'Category created successfully');
     }
 
     /**
@@ -55,7 +58,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $Category)
     {
-        
+
         return view('categories.edit', compact('Category'));
     }
 
@@ -69,9 +72,9 @@ class CategoryController extends Controller
             'description' => 'nullable|string'
         ]);
 
-       $Category->update($request->all());
+        $Category->update($request->all());
 
-       return redirect()->route('categories.index');
+        return redirect()->route('categories.index');
     }
 
     /**

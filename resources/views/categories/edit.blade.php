@@ -5,5 +5,5 @@
     <input type="text" name="name" id="name" value="{{ $Category->name }}">
     <label for="description">Description:</label>
     <input type="text" name="description" id="description" value="{{ $Category->description }}">
-    <input type="submit" value="Create">
+    <input type="submit" value="Update">
 </form>

@@ -15,6 +15,8 @@
                                 <th class="border py-1 px-2">id</th>
                                 <th class="border py-1 px-2">Name</th>
                                 <th class="border py-1 px-2">Description</th>
+                                <th class="border py-1 px-2">Editar</th>
+                                <th class="border py-1 px-2">Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,6 +25,8 @@
                                 <td class="border py-1 px-2">{{ $category->id }}</td>
                                 <td class="border py-1 px-2">{{  $category->name }}</td>
                                 <td class="bor4der py-1 px-2">{{  $category->description }}</td>
+                                <td class="bor4der py-1 px-2"><a href="{{  route('categories.edit', $category) }}">edit</a></td>
+                                <td class="bor4der py-1 px-2"><a href="">delete</a></td>
                             </tr>
                             @endforeach
                         </tbody>

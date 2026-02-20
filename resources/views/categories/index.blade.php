@@ -23,10 +23,18 @@
                             @foreach ($categories as $category)
                             <tr>
                                 <td class="border py-1 px-2">{{ $category->id }}</td>
-                                <td class="border py-1 px-2">{{  $category->name }}</td>
-                                <td class="bor4der py-1 px-2">{{  $category->description }}</td>
-                                <td class="bor4der py-1 px-2"><a href="{{  route('categories.edit', $category) }}">edit</a></td>
-                                <td class="bor4der py-1 px-2"><a href="">delete</a></td>
+                                <td class="border py-1 px-2">{{ $category->name }}</td>
+                                <td class="bor4der py-1 px-2">{{ $category->description }}</td>
+                                <td class="bor4der py-1 px-2"><a href="{{  route('categories.edit', $category) }}">Edit</a></td>
+                                <td class="border py-1 px-2">
+                                    <form action="{{ route('categories.destroy', $category) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Are you sure you want to remove {{ $category->name }}?')">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

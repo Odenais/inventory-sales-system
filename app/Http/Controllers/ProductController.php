@@ -12,8 +12,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        $products = Product::all();
+        $search = request('search');
+        $products = Product::when($search, function($query, $search){
+            $query->where('name', 'like', "%$search%");
+            })->latest()->paginate(10)->withQueryString();
         return view('products.index', compact('products'));
     }
 

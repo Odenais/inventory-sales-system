@@ -41,7 +41,7 @@
                                     <td class="px-3 border">{{  $product->price }}</td>
                                     <td class="px-3 border">{{  $product->stock }}</td>
                                     <td class="px-3 border">{{  $product->image }}</td>
-                                    <td class="px-3 border"></td>
+                                    <td class="px-3 border"><a href="{{  route('products.edit', $product) }}">Edit</a></td>
                                     <td class="px-3 border"></td>
                                 </tr>
                             @endforeach

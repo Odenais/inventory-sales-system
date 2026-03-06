@@ -42,7 +42,13 @@
                                     <td class="px-3 border">{{  $product->stock }}</td>
                                     <td class="px-3 border">{{  $product->image }}</td>
                                     <td class="px-3 border"><a href="{{  route('products.edit', $product) }}">Edit</a></td>
-                                    <td class="px-3 border"></td>
+                                    <td class="px-3 border">
+                                        <form action="{{ route('products.destroy', $product) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Are you sure you want remove {{ $product->name }}?')">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

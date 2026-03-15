@@ -25,7 +25,7 @@
                                 <th class="px-3 border">description</th>
                                 <th class="px-3 border">price</th>
                                 <th class="px-3 border">stock</th>
-                                <th class="px-3 border">ruta image</th>
+                                <th class="px-3 border">image</th>
                                 <th class="px-3 border">edit</th>
                                 <th class="px-3 border">delete</th>
                             </tr>

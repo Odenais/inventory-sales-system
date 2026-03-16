@@ -1,29 +1,29 @@
-<form action="{{ route('products.store') }}" method="POST">
+<form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    <label for="name_product">Name:</label>
-    <input type="text" name="name_product" id="name_product" value="">
+    <label for="name">Name:</label>
+    <input autocomplete="off" type="text" name="name" id="name" value="">
     <br>
-    <label for="category_product">Category:</label>
-    <select name="category_product_id" id="category_product_id">
+    <label for="category">Category:</label>
+    <select name="category_id" id="category_id">
         <option value="" selected="selected">- SELECT -</option>
         @foreach ($categories as $category)
         <option value="{{ $category->id }}">{{ $category->name }}</option>
         @endforeach
     </Select>
     <br>
-    <label for="description_product">Description:</label>
-    <input type="text" name="description_product" id="description_product" value="">
+    <label for="description">Description:</label>
+    <input autocomplete="off" type="text" name="description" id="description" value="">
     <br>
-    <label for="price_product">Price:</label>
-    <input type="number" name="price_product" id="price_product">
+    <label for="price">Price:</label>
+    <input autocomplete="off" type="number" name="price" id="price">
     <br>
-    <label for="stock_product">Stock:</label>
-    <input type="number" name="stock_product" id="stock_product" value="">
+    <label for="stock">Stock:</label>
+    <input autocomplete="off" type="number" name="stock" id="stock" value="">
     <br>
-    <label for="imagen_product"></label>
+    <label for="image"></label>
     <img src="" alt="">
     <br>
-    <input type="file" name="imagen_product" id="imagen_product">
+    <input type="file" name="image" id="image">
     <br>
     <br>
     <input type="submit" value="Create">

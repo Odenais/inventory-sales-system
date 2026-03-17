@@ -10,7 +10,7 @@ class ProductService
 {
     public function create(array $data): Product
     {
-       $product = Product::create([
+        $product = Product::create([
             'category_id' => $data['category_id'],
             'name' => $data['name'],
             'description' => $data['description'] ?? null,
@@ -33,8 +33,32 @@ class ProductService
             $product->update([
                 'image' => $path
             ]);
+        }
+        return $product;
+    }
 
+    public function update(Product $product, array $data): Product
+    {
+        $product->update([
+            'category_id' => $data['category_id'],
+            'name' => $data['name'],
+            'description' => $data['description'] ?? null,
+            'price' => $data['price'],
+            'stock' => $data['stock'],
+        ]);
+
+        if (isset($data['image'])) {
+            if ($product->image) {
+                storage::disk('public')->delete($product->image);
             }
-            return $product;
+
+            $extension = $data['image']->getClientOriginalExtension();
+            $filename = $product->id . '-' . Str::slug($data['name']) . '.' . $extension;
+            $path = $data['image']->storeAs('products', $filename, 'public');
+            $data['image'] = $path;
+        }
+        $product->update($data);
+
+        return $product;
     }
 }

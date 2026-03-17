@@ -15,9 +15,9 @@ class ProductController extends Controller
     public function index()
     {
         $search = request('search');
-        $products = Product::when($search, function($query, $search){
+        $products = Product::when($search, function ($query, $search) {
             $query->where('name', 'like', "%$search%");
-            })->latest()->paginate(10)->withQueryString();
+        })->latest()->paginate(10)->withQueryString();
         return view('products.index', compact('products'));
     }
 
@@ -59,9 +59,10 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product, ProductService $productService)
     {
-        //
+        $productService->update($product, $request->validated());
+        return redirect()->route('products.index')->with('success', 'Product updated successfully');
     }
 
     /**

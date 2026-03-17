@@ -24,7 +24,7 @@
     <input type="number" name="stock_product" id="stock_product" value="{{ $product->stock }}">
     <br>
     <label for="imagen_product"></label>
-    <img src="{{ $product->image }}" alt="{{ $product->image }}">
+    <img src="{{  asset('storage/' . $product->image) }}" alt="" width="150px">
     <br>
     <input type="file" name="imagen_product" id="imagen_product">
     <input type="submit" value="Update">

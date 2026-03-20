@@ -41,6 +41,7 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with('success', 'Category created successfully');
     }
 
+
     /**
      * Display the specified resource.
      */
@@ -76,4 +77,28 @@ class CategoryController extends Controller
         $Category->delete();
         return redirect()->route('categories.index');
     }
+
+    //METODOS PARA API
+    /* public function index()
+    {
+        $categories = Category::all();
+        return response()->json($categories);
+    }
+
+    public function store(Request $request)
+    {
+        $category = Category::create($request->all());
+        return response()->json($category, 201);
+    }
+
+    public function update(CategoryRequest $request, Category $Category)
+    {
+        $Category->update($request->all());
+        return response()->json($Category, 201);
+    }
+    public function destroy(Category $Category)
+    {
+        $Category->delete();
+        return response()->json($Category, 201);
+    } */
 }
